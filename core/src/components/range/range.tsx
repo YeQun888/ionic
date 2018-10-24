@@ -148,14 +148,13 @@ export class Range implements ComponentInterface {
   @Event() ionBlur!: EventEmitter<void>;
 
   componentWillLoad() {
-    this.ionStyle = deferEvent(this.ionStyle);
-
     this.updateRatio();
     this.debounceChanged();
     this.emitStyle();
   }
 
   async componentDidLoad() {
+    this.ionStyle = deferEvent(this.ionStyle);
     this.gesture = (await import('../../utils/gesture/gesture')).createGesture({
       el: this.rangeSlider!,
       queue: this.queue,

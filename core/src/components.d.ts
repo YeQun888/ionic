@@ -3310,10 +3310,6 @@ export namespace Components {
     */
     'allowEmptySelection': boolean;
     /**
-    * If `true`, the user cannot interact with the radio group. Default false.
-    */
-    'disabled': boolean;
-    /**
     * The name of the control, which is submitted with the form data.
     */
     'name': string;
@@ -3327,10 +3323,6 @@ export namespace Components {
     * If `true`, the radios can be deselected. Default false.
     */
     'allowEmptySelection'?: boolean;
-    /**
-    * If `true`, the user cannot interact with the radio group. Default false.
-    */
-    'disabled'?: boolean;
     /**
     * The name of the control, which is submitted with the form data.
     */

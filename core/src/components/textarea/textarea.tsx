@@ -162,10 +162,13 @@ export class Textarea implements ComponentInterface {
    */
   @Event() ionFocus!: EventEmitter<void>;
 
+  componentWillLoad() {
+    this.emitStyle();
+  }
+
   componentDidLoad() {
     this.ionStyle = deferEvent(this.ionStyle);
     this.debounceChanged();
-    this.emitStyle();
   }
 
   /**

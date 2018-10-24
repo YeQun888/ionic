@@ -86,8 +86,6 @@ export class Radio implements ComponentInterface {
 
   componentWillLoad() {
     this.ionSelect = deferEvent(this.ionSelect);
-    this.ionStyle = deferEvent(this.ionStyle);
-
     if (this.value == null) {
       this.value = this.inputId;
     }
@@ -95,6 +93,7 @@ export class Radio implements ComponentInterface {
   }
 
   componentDidLoad() {
+    this.ionStyle = deferEvent(this.ionStyle);
     this.ionRadioDidLoad.emit();
     this.nativeInput.checked = this.checked;
 
@@ -139,7 +138,7 @@ export class Radio implements ComponentInterface {
     this.emitStyle();
   }
 
-  emitStyle() {
+  private emitStyle() {
     this.ionStyle.emit({
       'radio-checked': this.checked,
       'interactive-disabled': this.disabled,

@@ -227,10 +227,6 @@ export class Select implements ComponentInterface {
     if (!this.value) {
       this.value = this.multiple ? [] : undefined;
     }
-  }
-
-  componentDidLoad() {
-    this.ionStyle = deferEvent(this.ionStyle);
 
     const label = this.getLabel();
     if (label) {
@@ -258,6 +254,10 @@ export class Select implements ComponentInterface {
       }
     }
     this.emitStyle();
+  }
+
+  componentDidLoad() {
+    this.ionStyle = deferEvent(this.ionStyle);
   }
 
   /**

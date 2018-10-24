@@ -229,12 +229,12 @@ export class Input implements ComponentInterface {
     if (this.clearOnEdit === undefined && this.type === 'password') {
       this.clearOnEdit = true;
     }
+    this.emitStyle();
   }
 
   componentDidLoad() {
     this.ionStyle = deferEvent(this.ionStyle);
     this.debounceChanged();
-    this.emitStyle();
 
     this.ionInputDidLoad.emit();
   }

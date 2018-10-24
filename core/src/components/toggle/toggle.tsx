@@ -90,19 +90,18 @@ export class Toggle implements ComponentInterface {
 
   @Watch('disabled')
   disabledChanged() {
-    this.ionStyle.emit({
-      'interactive-disabled': this.disabled,
-    });
+    this.emitStyle();
     if (this.gesture) {
       this.gesture.setDisabled(this.disabled);
     }
   }
 
   componentWillLoad() {
-    this.ionStyle = deferEvent(this.ionStyle);
+    this.emitStyle();
   }
 
   async componentDidLoad() {
+    this.ionStyle = deferEvent(this.ionStyle);
     const parentItem = this.nativeInput.closest('ion-item');
     if (parentItem) {
       const itemLabel = parentItem.querySelector('ion-label');
@@ -123,6 +122,12 @@ export class Toggle implements ComponentInterface {
       onEnd: ev => this.onEnd(ev),
     });
     this.disabledChanged();
+  }
+
+  private emitStyle() {
+    this.ionStyle.emit({
+      'interactive-disabled': this.disabled,
+    });
   }
 
   private onStart(detail: GestureDetail) {

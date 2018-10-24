@@ -212,7 +212,7 @@ export class Datetime implements ComponentInterface {
     // first see if locale names were provided in the inputs
     // then check to see if they're in the config
     // if neither were provided then it will use default English names
-    this.ionStyle = deferEvent(this.ionStyle);
+    this.emitStyle();
     this.locale = {
       // this.locale[type] = convertToArrayOfStrings((this[type] ? this[type] : this.config.get(type), type);
       monthNames: convertToArrayOfStrings(this.monthNames, 'monthNames'),
@@ -225,7 +225,7 @@ export class Datetime implements ComponentInterface {
   }
 
   componentDidLoad() {
-    this.emitStyle();
+    this.ionStyle = deferEvent(this.ionStyle);
   }
 
   /**
